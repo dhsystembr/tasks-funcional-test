@@ -17,7 +17,8 @@ public class TasksTest {
 		op.addArguments("--disable-dev-shm-usage");
 		WebDriver drive = new 
 				ChromeDriver(op);
-		drive.navigate().to("http://192.168.48.138:8001/tasks");
+		//drive.navigate().to("http://192.168.48.138:8001/tasks");
+		drive.navigate().to("http://localhost:8001/tasks");
 		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return drive;
 	}
