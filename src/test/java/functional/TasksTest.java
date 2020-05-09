@@ -14,8 +14,17 @@ public class TasksTest {
 	public WebDriver acessarAplicacao() {
 		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
 		ChromeOptions op = new ChromeOptions();
+		op.addArguments("--ignore-certificate-errors");
+		op.addArguments("--test-type");
+		op.addArguments("test-type");
+		op.addArguments("start-maximized");
+		op.addArguments("--window-size=1920,1080");
+		op.addArguments("--enable-precise-memory-info");
+		op.addArguments("--disable-popup-blocking");
+		op.addArguments("--disable-default-apps");
+		op.addArguments("test-type=browser");
+		op.addArguments("--incognito");
 		op.addArguments("--no-sandbox");
-		op.addArguments("--disable-dev-shm-usage");
 		op.setExperimentalOption("useAutomationExtension", false);
 		WebDriver drive = new 
 				ChromeDriver(op);
