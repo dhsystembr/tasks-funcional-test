@@ -7,12 +7,16 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TasksTest {
 	
 	public WebDriver acessarAplicacao() {
+		ChromeOptions op = new ChromeOptions();
+		op.addArguments("--no-sandbox");
+		op.addArguments("--disable-dev-shm-usage");
 		WebDriver drive = new 
-				ChromeDriver();
+				ChromeDriver(op);
 		drive.navigate().to("http://192.168.48.138:8001/tasks");
 		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return drive;
