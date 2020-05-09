@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class TasksTest {
 	
 	public WebDriver acessarAplicacao() {
+		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
 		ChromeOptions op = new ChromeOptions();
 		op.addArguments("--no-sandbox");
 		op.addArguments("--disable-dev-shm-usage");
