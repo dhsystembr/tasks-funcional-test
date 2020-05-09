@@ -16,6 +16,7 @@ public class TasksTest {
 		ChromeOptions op = new ChromeOptions();
 		op.addArguments("--no-sandbox");
 		op.addArguments("--disable-dev-shm-usage");
+		op.setExperimentalOption("useAutomationExtension", false);
 		WebDriver drive = new 
 				ChromeDriver(op);
 		//drive.navigate().to("http://192.168.48.138:8001/tasks");
