@@ -12,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class TasksTest {
 	
 	public WebDriver acessarAplicacao() {
-		System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
 		ChromeOptions op = new ChromeOptions();
 		op.addArguments("--ignore-certificate-errors");
 		op.addArguments("--test-type");
