@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -40,6 +41,8 @@ public class TasksTest {
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
 		WebDriver drive = new 
 				RemoteWebDriver(new URL("http://localhost:4444/ws/hub"), cap);
+		cap.setBrowserName("chrome");
+		cap.setPlatform(Platform.LINUX);
 		drive.navigate().to("http://localhost:8001/tasks");
 		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return drive;
