@@ -40,9 +40,10 @@ public class TasksTest {
 	//Utilizando Selenium GRID
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
 		cap.setBrowserName("chrome");
+		
 		cap.setPlatform(Platform.LINUX);
 		WebDriver drive = new 
-				RemoteWebDriver(new URL("http://localhost:4444/ws/hub"), cap);
+				RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
 		
 		drive.navigate().to("http://localhost:8001/tasks");
 		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
