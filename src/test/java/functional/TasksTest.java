@@ -1,5 +1,7 @@
 package functional;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -8,11 +10,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TasksTest {
 	
-	public WebDriver acessarAplicacao() {
-		ChromeOptions op = new ChromeOptions();
+	public WebDriver acessarAplicacao() throws MalformedURLException {
+	//Utilizando ChromeDriver
+		/*	ChromeOptions op = new ChromeOptions();
 		op.addArguments("--ignore-certificate-errors");
 		op.addArguments("--test-type");
 		op.addArguments("test-type");
@@ -30,12 +35,19 @@ public class TasksTest {
 		//drive.navigate().to("http://192.168.48.138:8001/tasks");
 		drive.navigate().to("http://localhost:8001/tasks");
 		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return drive;*/
+	//Utilizando Selenium GRID
+		DesiredCapabilities cap = DesiredCapabilities.chrome();
+		WebDriver drive = new 
+				RemoteWebDriver(new URL("http://localhost:444/ws/hub"), cap);
+		drive.navigate().to("http://localhost:8001/tasks");
+		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return drive;
 	}
 	
 	
 	@Test
-	public void testRegTaskAmbiente() {
+	public void testRegTaskAmbiente() throws MalformedURLException {
 		
 		WebDriver drive4 = acessarAplicacao();
 		try {
@@ -55,7 +67,7 @@ public class TasksTest {
 	}
 	
 	@Test
-	public void naoDeveRegTaskAmbienteSemDesc() {
+	public void naoDeveRegTaskAmbienteSemDesc() throws MalformedURLException{
 		WebDriver drive1 = acessarAplicacao();
 		try {
 			drive1.findElement(By.id("addTodo")).click();
@@ -73,7 +85,7 @@ public class TasksTest {
 	}
 	
 	@Test
-	public void NaoDevRegTaskAmbienteSemData() {
+	public void NaoDevRegTaskAmbienteSemData() throws MalformedURLException{
 		WebDriver drive2 = acessarAplicacao();
 		try {
 			drive2.findElement(By.id("addTodo")).click();
@@ -91,7 +103,7 @@ public class TasksTest {
 	}
 	
 	@Test
-	public void NaoDevRegTaskComDataPassada() {
+	public void NaoDevRegTaskComDataPassada() throws MalformedURLException{
 		WebDriver drive3 = acessarAplicacao();
 		try {
 			drive3.findElement(By.id("addTodo")).click();
