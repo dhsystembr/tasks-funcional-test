@@ -43,9 +43,9 @@ public class TasksTest {
 		
 		cap.setPlatform(Platform.LINUX);
 		WebDriver drive = new 
-				RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+				RemoteWebDriver(new URL("http://192.168.48.138:4444/wd/hub"), cap);
 		
-		drive.navigate().to("http://localhost:8001/tasks");
+		drive.navigate().to("http://192.168.48.138:8001/tasks");
 		drive.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return drive;
 	}
