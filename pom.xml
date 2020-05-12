@@ -16,8 +16,8 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<version>3.8.1</version>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M4</version>
 				<configuration>
 					<skipTests>${skip.surefire.tests}</skipTests>
 					<parallel>all</parallel>
@@ -26,8 +26,8 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<version>3.8.1</version>
 				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M4</version>
 				<executions>
 					<execution>
 						<goals>
